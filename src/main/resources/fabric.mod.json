@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "nooffhanduse",
+  "version": "1.0.0",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "NoOffHandUse",
+  "description": "The offhand is a special inventory-slot",
   "authors": [
-    "Me!"
+    "DukeEdivad05"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://dukeedivad05.github.io/",
+    "sources": "https://github.com/DukeEdivad05/NoOffHandUse"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/nooffhanduse/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "nooffhanduse.mixins.json"
   ],
 
   "depends": {
