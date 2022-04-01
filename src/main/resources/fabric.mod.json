@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "nooffhanduse",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "name": "NoOffHandUse",
   "description": "The offhand is a special inventory-slot",
@@ -28,6 +28,7 @@
 
   "depends": {
     "fabricloader": ">=0.11.3",
+    "malilib": ">=0.10.0-dev.26",
     "minecraft": "1.17.x",
     "java": ">=16"
   },
