@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "nooffhanduse",
-  "version": "1.0.1",
+  "version": "1.2.0",
 
   "name": "NoOffHandUse",
   "description": "The offhand is a special inventory-slot",
