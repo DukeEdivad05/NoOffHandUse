@@ -18,41 +18,51 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ClientPlayerInteractionManagerMixin {
     @Inject(method = "interactBlock", at = @At("HEAD"), cancellable = true)
     private void interactBlockMixin(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
-        boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
-        boolean food = player.getOffHandStack().isFood();
-        boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
-        if(!shield && !food && !rocket) {
-            cir.setReturnValue(ActionResult.FAIL);
+        if( hand == Hand.OFF_HAND) {
+            boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
+            boolean food = player.getOffHandStack().isFood();
+            boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
+            if (!shield && !food && !rocket) {
+                cir.setReturnValue(ActionResult.FAIL);
+            }
         }
     }
 
     @Inject(method = "interactBlockInternal", at = @At("HEAD"), cancellable = true)
     private void interactBlockInternalMixin(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
-        boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
-        boolean food = player.getOffHandStack().isFood();
-        boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
-        if(!shield && !food && !rocket) {
-            cir.setReturnValue(ActionResult.FAIL);
+        if( hand == Hand.OFF_HAND) {
+            boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
+            boolean food = player.getOffHandStack().isFood();
+            boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
+            if (!shield && !food && !rocket) {
+                cir.setReturnValue(ActionResult.FAIL);
+            }
         }
     }
 
     @Inject(method = "interactItem", at = @At("HEAD"), cancellable = true)
     private void interactItemMixin(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
-        boolean food = player.getOffHandStack().isFood();
-        boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
-        if(!shield && !food && !rocket) {
-            cir.setReturnValue(ActionResult.FAIL);
+        if(hand == Hand.OFF_HAND) {
+            boolean shield = player.getOffHandStack().getItem() == Items.SHIELD;
+            boolean food = player.getOffHandStack().isFood();
+            boolean rocket = player.getOffHandStack().getItem() == Items.FIREWORK_ROCKET;
+            if (!shield && !food && !rocket) {
+                cir.setReturnValue(ActionResult.FAIL);
+            }
         }
     }
 
     @Inject(method = "interactEntity", at = @At("HEAD"), cancellable = true)
     private void interactEntityMixin(PlayerEntity player, Entity entity, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        cir.setReturnValue(ActionResult.FAIL);
+        if(hand == Hand.OFF_HAND) {
+            cir.setReturnValue(ActionResult.FAIL);
+        }
     }
 
     @Inject(method = "interactEntityAtLocation", at = @At("HEAD"), cancellable = true)
     private void interactEntityAtLocationMixin(PlayerEntity player, Entity entity, EntityHitResult hitResult, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        cir.setReturnValue(ActionResult.FAIL);
+        if(hand == Hand.OFF_HAND) {
+            cir.setReturnValue(ActionResult.FAIL);
+        }
     }
 }
